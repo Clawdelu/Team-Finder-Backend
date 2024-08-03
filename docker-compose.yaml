@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  db-team-finder-backend:
+    image: mysql:latest
+    container_name: my-sql-test
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test1
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass1
+  app-team-finder-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db-team-finder-backend
+    environment:
+      DB_URL: jdbc:mysql://db-team-finder-backend:3306/test1
+    ports:
+      - "8080:8080"

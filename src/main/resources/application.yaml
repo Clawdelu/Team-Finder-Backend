@@ -1,0 +1,33 @@
+# Logging
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+      hibernate:
+        sql: DEBUG
+        type.descriptor.sql.BasicBinder: ERROR
+
+application:
+  security:
+    jwt:
+      secret-key: 219499c2fa6d45a4b3f37b138d29f733ba20e5e891bc1a7c277dbecaa53ccf54
+      expiration: 2592000000 # 30 days
+
+spring:
+  datasource:
+    username: user
+    password: pass1
+    url: ${DB_URL:jdbc:mysql://localhost:3306/test1}
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+  security:
+    user:
+      password: pass
+      name: user
+

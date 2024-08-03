@@ -1,0 +1,32 @@
+# Logging
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+      hibernate:
+        sql: DEBUG
+        type.descriptor.sql.BasicBinder: ERROR
+
+application:
+  security:
+    jwt:
+      secret-key: 219499c2fa6d45a4b3f37b138d29f733ba20e5e891bc1a7c277dbecaa53ccf54
+      expiration: 86400000
+
+spring:
+  datasource:
+    username: innovationtrio_lqtyug
+    password: ATC2024!SecurePassword
+    url: jdbc:sqlserver://atc-2024-mssql-server.database.windows.net:1433;database=atc-2024-the-innovation-trio-sql-database
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      #dialect: org.hibernate.dialect.SQLServerDialect
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+
+
